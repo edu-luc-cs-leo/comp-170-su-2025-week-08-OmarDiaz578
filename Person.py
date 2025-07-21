@@ -39,3 +39,18 @@ class Person:
     def __str__(self):
         """String representation for the object"""
         return f"[ {self.first_name} {self.last_name}]"
+
+def say_birthday(self) -> str:
+    """
+    - Returns a conversation string of a person's birthday
+    """
+    # Goes into the Person object, accesses birthday attribute, then accesses the day inside the Birthday object
+    day: int = self.birthday.day
+    
+    suffix: str = "th"
+    if day in [1, 21, 31]:
+        suffix = "st"
+    elif day in [2, 22]:
+        suffix = "nd"
+    elif day in [3, 23]:
+        suffix = "rd"
