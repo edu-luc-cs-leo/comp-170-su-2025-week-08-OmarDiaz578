@@ -61,7 +61,15 @@ class Birthday:
         """String representation for the object"""
         return f"[ {self.get_month()}/{self.get_day()} ]"
     
-
+    def set_month(self, month):
+        # Checks if the month is a valid calendar month
+        # If it's false the method does nothing
+        if 1 <= month <= 12:
+            # If check passes, this line updates 
+            self.__month = month
+    
+b1 = Birthday(2, 28)
+b2 = Birthday(1, 23)
 demo = Birthday(6,29)
 
 print(demo.day_in_year(6,29)) # d_b

@@ -1,6 +1,7 @@
 from Birthday import Birthday
 
 
+
 class Person:
 
     def __init__(self, first_name, last_name):
@@ -39,18 +40,37 @@ class Person:
     def __str__(self):
         """String representation for the object"""
         return f"[ {self.first_name} {self.last_name}]"
-
-def say_birthday(self) -> str:
-    """
-    - Returns a conversation string of a person's birthday
-    """
-    # Goes into the Person object, accesses birthday attribute, then accesses the day inside the Birthday object
-    day: int = self.birthday.day
     
-    suffix: str = "th"
-    if day in [1, 21, 31]:
+    def say_birthday(self) -> str:
+     """
+     - Returns a conversation string of a person's birthday
+     """
+    # Goes into the Person object, accesses birthday attribute, then accesses the day inside the Birthday object
+     day: int = self._birthday.get_day()
+    # Determines the suffix for the day
+     suffix: str = "th"
+     if day in [1, 21, 31]:
         suffix = "st"
-    elif day in [2, 22]:
+     elif day in [2, 22]:
         suffix = "nd"
-    elif day in [3, 23]:
+     elif day in [3, 23]:
         suffix = "rd"
+     # List of month names
+     month_names = ["January", "February", "March", "April", "May", "June", "july", "August", "September", "October", "November", "December"]
+     # Gets numeric month from Birthday object
+     month_index = self._birthday.get_month()
+     # Converts numeric month to full name using the list of month names
+     month_name = month_names[month_index - 1]
+     return f"{day}{suffix} of {month_name}"
+    
+    def __lt__(self, other) -> bool:
+        # Compares first names alphabetically and returns true if first name of self is less alphabetically than other.
+        return self.first_name < other.first_name
+
+# Testing Code
+ 
+p1 = Person("Bob", "Marley")
+p2 = Person("Jimmi", "Hendrix")
+p1.set_birthday(2, 6)
+print(p1.say_birthday())
+print(p1 < p2)
