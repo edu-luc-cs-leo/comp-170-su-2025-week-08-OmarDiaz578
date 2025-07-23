@@ -1,0 +1,5 @@
+The last assignment went well and gave me the expected output. I also included some testing code to help test the code I wrote.
+It did take me a lot longer than I would've liked and it made me realize this is somethign that takes a lot of practice. I definitey 
+want to took into ways to get more practice with objects. I believe my comments did progress my understanding further and will definitely 
+help when I look back at my work in the future. I can still work on my focus when it comes to my code, I often times get distracted by another 
+factor that i'm currently not working on, slowing me down and allowing me to make mistakes.
