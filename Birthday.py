@@ -42,12 +42,23 @@ class Birthday:
 
     # Compute days to birthday
     def days_until(self):
-        # obtain today's date
-        # extract month and day
-        # subtract from birthday
-        # return # of days
+        # Gets today's date using datetime module
         today = datetime.today()
-        # COMPLETE THIS FOR YOUR ASSIGNMENT
+        # Gets numeric month and date
+        today_month = today.month
+        today_day = today.day
+        # Uses day_in_year to calculate what day of the year today is
+        # and what day the birthday falls on
+        today_day_number = self.day_in_year(today_month, today_day)
+        birthday_day_number = self.day_in_year(self.__month, self.__day)
+        # Calculates how many days until the birthday:
+        # If birthday is still coming just subtract
+        if birthday_day_number >= today_day_number:
+            days_remaining = birthday_day_number - today_day_number
+        else:
+        # If birthday passed, calculates number of day until it comes
+            days_remaining = 365 - today_day_number + birthday_day_number
+        return days_remaining
         
     def day_in_year(self, month, day):
         """calculates the day number within the year corresponding to a given 
@@ -68,9 +79,13 @@ class Birthday:
             # If check passes, this line updates 
             self.__month = month
     
-b1 = Birthday(2, 28)
-b2 = Birthday(1, 23)
+
+    
+
 demo = Birthday(6,29)
 
 print(demo.day_in_year(6,29)) # d_b
 print(demo.day_in_year(4,29)) # d_t
+
+b = Birthday(2, 15)
+print(f"Days until birthday: {b.days_until()}")

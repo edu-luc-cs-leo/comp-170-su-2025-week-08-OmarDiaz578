@@ -66,6 +66,10 @@ class Person:
     def __lt__(self, other) -> bool:
         # Compares first names alphabetically and returns true if first name of self is less alphabetically than other.
         return self.first_name < other.first_name
+    
+
+
+    
 
 # Testing Code
  
